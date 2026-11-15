@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Hair — Acesso</title>
+    <link rel="stylesheet" href="estilos/estilo.css">
+</head>
+<body class="corpo-acesso">
+
+    <main class="cartao-acesso">
+        <div class="marca">
+            <h1>Studio Hair</h1>
+            <p>Agendamento online rápido e sem complicação</p>
+        </div>
+
+        <!-- TRUQUE CSS PURO: Dois botões 'radio' invisíveis controlam qual aba está marcada -->
+        <input type="radio" name="controle-abas" id="aba-entrar" class="controle-aba-oculto" checked>
+        <input type="radio" name="controle-abas" id="aba-cadastrar" class="controle-aba-oculto">
+
+        <!-- Os 'label' funcionam como botões visuais vinculados aos 'radio' acima -->
+        <div class="abas">
+            <label for="aba-entrar" class="botao-aba rotulo-entrar">Entrar</label>
+            <label for="aba-cadastrar" class="botao-aba rotulo-cadastrar">Criar Conta</label>
+        </div>
+
+        <!-- Formulário de Login -->
+        <form class="formulario-acesso form-entrar" action="painel.html">
+            <div class="grupo-campo">
+                <label for="entrar-email">E-mail</label>
+                <input type="email" id="entrar-email" name="email" placeholder="seu@email.com" required>
+            </div>
+            <div class="grupo-campo">
+                <label for="entrar-senha">Senha</label>
+                <input type="password" id="entrar-senha" name="password" placeholder="••••••••" required>
+            </div>
+            <!-- Por enquanto usamos um link estilizado de botão para você navegar até o painel -->
+            <a href="painel.html" class="botao botao-primario botao-largura-total">Entrar no Sistema</a>
+        </form>
+
+        <!-- Formulário de Cadastro -->
+        <form class="formulario-acesso form-cadastrar" action="painel.html">
+            <div class="grupo-campo">
+                <label for="cadastro-nome">Nome completo</label>
+                <input type="text" id="cadastro-nome" name="name" placeholder="Ex: Maria Silva" required>
+            </div>
+            <div class="grupo-campo">
+                <label for="cadastro-email">E-mail</label>
+                <input type="email" id="cadastro-email" name="email" placeholder="seu@email.com" required>
+            </div>
+            <div class="grupo-campo">
+                <label for="cadastro-telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="cadastro-telefone" name="phone" placeholder="(11) 99999-9999" required>
+            </div>
+            <div class="grupo-campo">
+                <label for="cadastro-senha">Senha</label>
+                <input type="password" id="cadastro-senha" name="password" placeholder="Crie uma senha" required>
+            </div>
+            <a href="painel.html" class="botao botao-primario botao-largura-total">Finalizar Cadastro</a>
+        </form>
+    </main>
+
+</body>
+</html>

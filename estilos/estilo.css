@@ -1,0 +1,351 @@
+/* =========================================================================
+   VARIÁVEIS DE CORES E RESET
+   ========================================================================= */
+:root {
+    --cor-primaria: #7c3aed;
+    --cor-primaria-escura: #6d28d9;
+    --cor-fundo: #f8fafc;
+    --cor-superficie: #ffffff;
+    --cor-texto: #1e293b;
+    --cor-texto-suave: #64748b;
+    --cor-borda: #e2e8f0;
+
+    /* Cores dos status */
+    --fundo-sucesso: #dcfce7;
+    --texto-sucesso: #166534;
+    --fundo-erro: #fee2e2;
+    --texto-erro: #991b1b;
+    --fundo-aviso: #fef3c7;
+    --texto-aviso: #92400e;
+    --fundo-info: #e0e7ff;
+    --texto-info: #3730a3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+.texto-suave {
+    color: var(--cor-texto-suave);
+    font-size: 0.875rem;
+}
+
+/* =========================================================================
+   TELA DE ACESSO (index.html)
+   ========================================================================= */
+.corpo-acesso {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.cartao-acesso {
+    background: var(--cor-superficie);
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--cor-borda);
+}
+
+.marca {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.marca h1 {
+    color: var(--cor-primaria);
+    font-size: 1.75rem;
+}
+
+.marca p {
+    color: var(--cor-texto-suave);
+    font-size: 0.9rem;
+}
+
+/* Controle das abas em CSS puro */
+.controle-aba-oculto {
+    display: none;
+}
+
+.abas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--cor-fundo);
+    padding: 0.25rem;
+    border-radius: 8px;
+}
+
+.botao-aba {
+    text-align: center;
+    padding: 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--cor-texto-suave);
+    margin-bottom: 0;
+    transition: 0.2s;
+}
+
+/* Esconde os formulários por padrão e mostra apenas o da aba selecionada */
+.form-entrar,
+.form-cadastrar {
+    display: none;
+}
+
+#aba-entrar:checked ~ .abas .rotulo-entrar,
+#aba-cadastrar:checked ~ .abas .rotulo-cadastrar {
+    background: var(--cor-superficie);
+    color: var(--cor-primaria);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#aba-entrar:checked ~ .form-entrar {
+    display: block;
+}
+
+#aba-cadastrar:checked ~ .form-cadastrar {
+    display: block;
+}
+
+/* =========================================================================
+   FORMULÁRIOS E BOTÕES
+   ========================================================================= */
+.grupo-campo {
+    margin-bottom: 1rem;
+}
+
+.linha-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: var(--cor-superficie);
+    color: var(--cor-texto);
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.botao-primario {
+    background: var(--cor-primaria);
+    color: #ffffff;
+}
+
+.botao-primario:hover {
+    background: var(--cor-primaria-escura);
+}
+
+.botao-contorno {
+    background: transparent;
+    border-color: var(--cor-borda);
+    color: var(--cor-texto);
+}
+
+.botao-contorno:hover {
+    background: var(--cor-fundo);
+}
+
+.botao-perigo {
+    background: var(--fundo-erro);
+    color: var(--texto-erro);
+}
+
+.botao-perigo:hover {
+    filter: brightness(0.95);
+}
+
+.botao-pequeno {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+.botao-largura-total {
+    width: 100%;
+}
+
+/* =========================================================================
+   PAINEL PRINCIPAL (painel.html)
+   ========================================================================= */
+.barra-topo {
+    background: var(--cor-superficie);
+    border-bottom: 1px solid var(--cor-borda);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.conteudo-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra-topo h2 {
+    color: var(--cor-primaria);
+}
+
+.menu-usuario {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.grade-principal {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Em telas menores (tablets e celulares), empilha uma coluna sobre a outra */
+@media (max-width: 850px) {
+    .grade-principal {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cartao {
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.cabecalho-cartao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.subtitulo {
+    color: var(--cor-texto-suave);
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+}
+
+.resumo-servico {
+    background: var(--cor-fundo);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--cor-borda);
+}
+
+/* =========================================================================
+   TABELA E ETIQUETAS DE STATUS
+   ========================================================================= */
+.tabela-responsiva {
+    overflow-x: auto;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.tabela th,
+.tabela td {
+    padding: 0.8rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.tabela th {
+    font-weight: 600;
+    color: var(--cor-texto-suave);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.etiqueta-agendado {
+    background: var(--fundo-aviso);
+    color: var(--texto-aviso);
+}
+
+.etiqueta-confirmado {
+    background: var(--fundo-sucesso);
+    color: var(--texto-sucesso);
+}
+
+.etiqueta-cancelado {
+    background: var(--fundo-erro);
+    color: var(--texto-erro);
+}
+
+.etiqueta-concluido {
+    background: var(--fundo-info);
+    color: var(--texto-info);
+}
