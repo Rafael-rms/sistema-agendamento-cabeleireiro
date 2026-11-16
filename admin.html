@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo 16 — Painel do Salão</title>
+    <link rel="stylesheet" href="estilos/estilo.css">
+</head>
+<body>
+
+    <!-- Barra superior identificada como Área Administrativa -->
+    <header class="barra-topo">
+        <div class="container conteudo-topo">
+            <div class="titulo-admin">
+                <h2>Grupo 16 — Salão</h2>
+                <span class="selo-admin">Admin</span>
+            </div>
+            <div class="menu-usuario">
+                <span>Olá, <strong>Equipe</strong></span>
+                <a href="index.html" class="botao botao-contorno botao-pequeno">Sair</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Resumo rápido do dia para o Salão -->
+        <section class="grade-resumo">
+            <div class="cartao-resumo">
+                <span class="texto-suave">Agendamentos Hoje</span>
+                <strong class="numero-resumo">6</strong>
+            </div>
+            <div class="cartao-resumo">
+                <span class="texto-suave">Aguardando Confirmação</span>
+                <strong class="numero-resumo texto-aviso">2</strong>
+            </div>
+            <div class="cartao-resumo">
+                <span class="texto-suave">Confirmados</span>
+                <strong class="numero-resumo texto-sucesso">4</strong>
+            </div>
+        </section>
+
+        <!-- Grade principal: Agendamento Rápido (Esquerda) + Agenda Geral (Direita) -->
+        <div class="grade-principal">
+
+            <!-- Coluna da Esquerda: Lançar agendamento pelo Salão -->
+            <section class="cartao">
+                <h3>Agendamento Rápido</h3>
+                <p class="subtitulo">Registre um horário para cliente via telefone ou balcão.</p>
+
+                <form>
+                    <div class="grupo-campo">
+                        <label for="admin-cliente">Nome do Cliente</label>
+                        <input type="text" id="admin-cliente" placeholder="Ex: Ana Paula" required>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="admin-telefone">Telefone / WhatsApp</label>
+                        <input type="tel" id="admin-telefone" placeholder="(11) 98888-7777" required>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="admin-servico">Serviço</label>
+                        <select id="admin-servico" required>
+                            <option value="">Selecione um serviço...</option>
+                            <option value="1">Corte Feminino — R$ 80,00 (60 min)</option>
+                            <option value="2">Corte Masculino — R$ 45,00 (30 min)</option>
+                            <option value="3">Escova e Hidratação — R$ 70,00 (50 min)</option>
+                            <option value="4">Coloração / Mechas — R$ 180,00 (120 min)</option>
+                            <option value="5">Barba e Acabamento — R$ 35,00 (30 min)</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="admin-data">Data</label>
+                        <input type="date" id="admin-data" required>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label>Horário</label>
+                        <div class="grade-horarios">
+                            <label class="opcao-horario">
+                                <input type="radio" name="admin-horario" value="09:00">
+                                <span>09:00</span>
+                            </label>
+                            <label class="opcao-horario">
+                                <input type="radio" name="admin-horario" value="10:30" checked>
+                                <span>10:30</span>
+                            </label>
+                            <label class="opcao-horario">
+                                <input type="radio" name="admin-horario" value="13:00">
+                                <span>13:00</span>
+                            </label>
+                            <label class="opcao-horario">
+                                <input type="radio" name="admin-horario" value="14:30">
+                                <span>14:30</span>
+                            </label>
+                            <label class="opcao-horario">
+                                <input type="radio" name="admin-horario" value="16:00">
+                                <span>16:00</span>
+                            </label>
+                            <label class="opcao-horario">
+                                <input type="radio" name="admin-horario" value="17:30">
+                                <span>17:30</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="botao botao-primario botao-largura-total botao-grande">
+                        Salvar na Agenda
+                    </button>
+                </form>
+            </section>
+
+            <!-- Coluna da Direita: Agenda Completa de Todos os Clientes -->
+            <section class="cartao">
+                <div class="cabecalho-cartao">
+                    <h3>Agenda de Clientes</h3>
+                    <input type="date" class="filtro-data" aria-label="Filtrar por data">
+                </div>
+
+                <div class="tabela-responsiva">
+                    <table class="tabela">
+                        <thead>
+                            <tr>
+                                <th>Horário</th>
+                                <th>Cliente</th>
+                                <th>Serviço</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>18/11</strong> às 14:00</td>
+                                <td>
+                                    Maria Silva<br>
+                                    <span class="texto-suave">(11) 99999-1111</span>
+                                </td>
+                                <td>Corte Feminino</td>
+                                <td><span class="etiqueta etiqueta-agendado">Agendado</span></td>
+                                <td class="acoes-linha">
+                                    <button type="button" class="botao botao-sucesso botao-pequeno">Confirmar</button>
+                                    <button type="button" class="botao botao-perigo botao-pequeno">Cancelar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>18/11</strong> às 15:30</td>
+                                <td>
+                                    Carlos Eduardo<br>
+                                    <span class="texto-suave">(11) 98888-2222</span>
+                                </td>
+                                <td>Corte Masculino</td>
+                                <td><span class="etiqueta etiqueta-confirmado">Confirmado</span></td>
+                                <td class="acoes-linha">
+                                    <button type="button" class="botao botao-contorno botao-pequeno">Concluir</button>
+                                    <button type="button" class="botao botao-perigo botao-pequeno">Cancelar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>18/11</strong> às 17:00</td>
+                                <td>
+                                    Juliana Costa<br>
+                                    <span class="texto-suave">(11) 97777-3333</span>
+                                </td>
+                                <td>Escova e Hidratação</td>
+                                <td><span class="etiqueta etiqueta-concluido">Concluído</span></td>
+                                <td>—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>

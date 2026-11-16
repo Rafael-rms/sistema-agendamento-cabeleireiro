@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Hair — Meus Agendamentos</title>
+    <title>Grupo 16 — Área do Cliente</title>
     <link rel="stylesheet" href="estilos/estilo.css">
 </head>
 <body>
@@ -11,26 +11,25 @@
     <!-- Barra superior -->
     <header class="barra-topo">
         <div class="container conteudo-topo">
-            <h2>Studio Hair</h2>
+            <h2>Grupo 16 — Salão</h2>
             <div class="menu-usuario">
-                <span>Olá, <strong>Maria Silva</strong></span>
+                <span>Olá, <strong>Maria</strong></span>
                 <a href="index.html" class="botao botao-contorno botao-pequeno">Sair</a>
             </div>
         </div>
     </header>
 
-    <!-- Conteúdo principal em duas colunas -->
     <main class="container grade-principal">
 
-        <!-- Coluna da Esquerda: Formulário de Novo Agendamento -->
+        <!-- Coluna 1: Agendamento otimizado para toque no celular -->
         <section class="cartao">
             <h3>Novo Agendamento</h3>
-            <p class="subtitulo">Escolha o serviço e o melhor horário para você.</p>
+            <p class="subtitulo">Escolha o serviço, o dia e toque no horário desejado.</p>
 
             <form>
                 <div class="grupo-campo">
-                    <label for="selecao-servico">Serviço</label>
-                    <select id="selecao-servico" name="service_id" required>
+                    <label for="selecao-servico">1. Qual serviço você deseja?</label>
+                    <select id="selecao-servico" required>
                         <option value="">Selecione um serviço...</option>
                         <option value="1">Corte Feminino — R$ 80,00 (60 min)</option>
                         <option value="2">Corte Masculino — R$ 45,00 (30 min)</option>
@@ -40,31 +39,54 @@
                     </select>
                 </div>
 
-                <!-- Data e Horário lado a lado -->
-                <div class="linha-campos">
-                    <div class="grupo-campo">
-                        <label for="data-agendamento">Data</label>
-                        <input type="date" id="data-agendamento" name="date" required>
-                    </div>
-                    <div class="grupo-campo">
-                        <label for="hora-agendamento">Horário</label>
-                        <input type="time" id="hora-agendamento" name="time" required>
+                <div class="grupo-campo">
+                    <label for="data-agendamento">2. Escolha a data</label>
+                    <input type="date" id="data-agendamento" required>
+                </div>
+
+                <!-- Grade de horários clicáveis (muito mais fácil no celular!) -->
+                <div class="grupo-campo">
+                    <label>3. Toque em um horário disponível</label>
+                    <div class="grade-horarios">
+                        <label class="opcao-horario">
+                            <input type="radio" name="horario" value="09:00">
+                            <span>09:00</span>
+                        </label>
+                        <label class="opcao-horario">
+                            <input type="radio" name="horario" value="10:30" checked>
+                            <span>10:30</span>
+                        </label>
+                        <label class="opcao-horario">
+                            <input type="radio" name="horario" value="13:00">
+                            <span>13:00</span>
+                        </label>
+                        <label class="opcao-horario">
+                            <input type="radio" name="horario" value="14:30">
+                            <span>14:30</span>
+                        </label>
+                        <label class="opcao-horario">
+                            <input type="radio" name="horario" value="16:00">
+                            <span>16:00</span>
+                        </label>
+                        <label class="opcao-horario">
+                            <input type="radio" name="horario" value="17:30">
+                            <span>17:30</span>
+                        </label>
                     </div>
                 </div>
 
-                <!-- Resumo visual antes de confirmar -->
                 <div class="resumo-servico">
-                    <span>Duração estimada: <strong>60 min</strong></span>
-                    <span>Valor: <strong>R$ 80,00</strong></span>
+                    <span>Duração: <strong>60 min</strong></span>
+                    <span>Total: <strong>R$ 80,00</strong></span>
                 </div>
 
-                <button type="button" class="botao botao-primario botao-largura-total">
+                <button type="button" class="botao botao-primario botao-largura-total botao-grande">
                     Confirmar Agendamento
                 </button>
             </form>
         </section>
 
-        <!-- Coluna da Direita: Tabela de Agendamentos -->
+        <!-- Coluna 2: Meus Agendamentos -->
         <section class="cartao">
             <div class="cabecalho-cartao">
                 <h3>Meus Agendamentos</h3>
@@ -83,9 +105,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Exemplos visuais de cada status do banco de dados -->
                         <tr>
-                            <td>18/11/2026 às 14:00</td>
+                            <td>18/11/2026 às 14:30</td>
                             <td>Corte Feminino</td>
                             <td>R$ 80,00</td>
                             <td><span class="etiqueta etiqueta-agendado">Agendado</span></td>
@@ -107,13 +128,6 @@
                             <td>Coloração / Mechas</td>
                             <td>R$ 180,00</td>
                             <td><span class="etiqueta etiqueta-concluido">Concluído</span></td>
-                            <td>—</td>
-                        </tr>
-                        <tr>
-                            <td>01/11/2026 às 09:00</td>
-                            <td>Corte Feminino</td>
-                            <td>R$ 80,00</td>
-                            <td><span class="etiqueta etiqueta-cancelado">Cancelado</span></td>
                             <td>—</td>
                         </tr>
                     </tbody>
