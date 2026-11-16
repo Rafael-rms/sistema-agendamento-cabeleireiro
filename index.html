@@ -8,196 +8,170 @@
 </head>
 <body>
 
-    <!-- =====================================================================
-         1. CONTROLE DO MODAL EM CSS PURO (Invisível na tela)
-         Quando este checkbox fica marcado, o modal aparece por cima de tudo
-         ===================================================================== -->
-    <input type="checkbox" id="abrir-modal" class="controle-oculto">
+    <input type="checkbox" id="modal-login" class="oculto">
 
-    <!-- =====================================================================
-         2. JANELA MODAL (Abre por cima da página inicial)
-         ===================================================================== -->
-    <div class="fundo-modal">
-        <div class="janela-modal">
-            <!-- Cabeçalho do Modal com botão X para fechar -->
-            <div class="cabecalho-modal">
+    <!-- Modal de acesso -->
+    <div class="modal-bg">
+        <div class="modal-box">
+            <div class="modal-topo">
                 <div>
                     <h3>Acesse sua conta</h3>
-                    <p class="texto-suave">Entre para agendar ou gerenciar horários</p>
+                    <p class="subtexto">Entre para agendar ou gerenciar horários</p>
                 </div>
-                <label for="abrir-modal" class="botao-fechar" title="Fechar janela">&times;</label>
+                <label for="modal-login" class="btn-fechar" title="Fechar">&times;</label>
             </div>
 
-            <!-- Controles das 3 abas internas do Modal -->
-            <input type="radio" name="tipo-acesso" id="aba-cliente" class="controle-oculto" checked>
-            <input type="radio" name="tipo-acesso" id="aba-cadastro" class="controle-oculto">
-            <input type="radio" name="tipo-acesso" id="aba-admin" class="controle-oculto">
+            <input type="radio" name="acesso" id="tab-cliente" class="oculto" checked>
+            <input type="radio" name="acesso" id="tab-cadastro" class="oculto">
+            <input type="radio" name="acesso" id="tab-admin" class="oculto">
 
-            <div class="abas-modal">
-                <label for="aba-cliente" class="aba-item rotulo-cliente">Cliente</label>
-                <label for="aba-cadastro" class="aba-item rotulo-cadastro">Criar Conta</label>
-                <label for="aba-admin" class="aba-item rotulo-admin">Admin</label>
+            <div class="tabs">
+                <label for="tab-cliente" class="tab lb-cliente">Cliente</label>
+                <label for="tab-cadastro" class="tab lb-cadastro">Criar Conta</label>
+                <label for="tab-admin" class="tab lb-admin">Admin</label>
             </div>
 
-            <!-- FORMULÁRIO 1: Login do Cliente -->
-            <form class="form-modal form-cliente">
-                <div class="grupo-campo">
+            <!-- Login Cliente -->
+            <form class="form-tab f-cliente">
+                <div class="campo">
                     <label for="cli-email">E-mail do Cliente</label>
                     <input type="email" id="cli-email" placeholder="cliente@email.com" required>
                 </div>
-                <div class="grupo-campo">
+                <div class="campo">
                     <label for="cli-senha">Senha</label>
                     <input type="password" id="cli-senha" placeholder="••••••••" required>
                 </div>
-                <a href="painel.html" class="botao botao-primario botao-largura-total">
-                    Entrar e Agendar
-                </a>
+                <a href="painel.html" class="btn btn-vermelho btn-full">Entrar e Agendar</a>
             </form>
 
-            <!-- FORMULÁRIO 2: Cadastro de Novo Cliente -->
-            <form class="form-modal form-cadastro">
-                <div class="grupo-campo">
+            <!-- Cadastro Cliente -->
+            <form class="form-tab f-cadastro">
+                <div class="campo">
                     <label for="cad-nome">Nome completo</label>
                     <input type="text" id="cad-nome" placeholder="Ex: Maria Silva" required>
                 </div>
-                <div class="grupo-campo">
-                    <label for="cad-telefone">WhatsApp / Celular</label>
-                    <input type="tel" id="cad-telefone" placeholder="(11) 99999-9999" required>
+                <div class="campo">
+                    <label for="cad-tel">WhatsApp / Celular</label>
+                    <input type="tel" id="cad-tel" placeholder="(11) 99999-9999" required>
                 </div>
-                <div class="grupo-campo">
+                <div class="campo">
                     <label for="cad-email">E-mail</label>
                     <input type="email" id="cad-email" placeholder="seu@email.com" required>
                 </div>
-                <div class="grupo-campo">
+                <div class="campo">
                     <label for="cad-senha">Crie uma senha</label>
                     <input type="password" id="cad-senha" placeholder="Mínimo 6 caracteres" required>
                 </div>
-                <a href="painel.html" class="botao botao-primario botao-largura-total">
-                    Concluir Cadastro
-                </a>
+                <a href="painel.html" class="btn btn-vermelho btn-full">Concluir Cadastro</a>
             </form>
 
-            <!-- FORMULÁRIO 3: Login do Administrador / Salão -->
-            <form class="form-modal form-admin">
-                <div class="aviso-admin">
+            <!-- Login Admin -->
+            <form class="form-tab f-admin">
+                <div class="alerta-admin">
                     Acesso exclusivo para profissionais e recepção do salão.
                 </div>
-                <div class="grupo-campo">
+                <div class="campo">
                     <label for="adm-email">E-mail Corporativo</label>
                     <input type="email" id="adm-email" placeholder="admin@grupo16.com" required>
                 </div>
-                <div class="grupo-campo">
+                <div class="campo">
                     <label for="adm-senha">Senha de Acesso</label>
                     <input type="password" id="adm-senha" placeholder="••••••••" required>
                 </div>
-                <a href="admin.html" class="botao botao-secundario botao-largura-total">
-                    Acessar Painel do Salão
-                </a>
+                <a href="admin.html" class="btn btn-azul btn-full">Acessar Painel do Salão</a>
             </form>
         </div>
     </div>
 
-    <!-- =====================================================================
-         3. PÁGINA INICIAL DO SALÃO (Fica visível ao abrir o site)
-         ===================================================================== -->
-    <header class="barra-topo">
-        <div class="container conteudo-topo">
+    <header class="topo">
+        <div class="container topo-flex">
             <h2>Grupo 16 — Salão</h2>
-            <!-- Este label abre o modal ao ser clicado -->
-            <label for="abrir-modal" class="botao botao-primario botao-pequeno">
-                Entrar / Agendar
-            </label>
+            <label for="modal-login" class="btn btn-vermelho btn-sm">Entrar / Agendar</label>
         </div>
     </header>
 
-    <!-- Banner Principal (Hero) -->
-    <section class="banner-principal">
-        <div class="container conteudo-banner">
-            <span class="etiqueta-destaque">Agendamento Online 24h</span>
-            <h1>Seu horário marcado em poucos toques, direto pelo celular.</h1>
+    <section class="banner">
+        <div class="container banner-info">
+            <span class="tag-banner">Agendamento Online 24h</span>
+            <h1>Seu horário marcado em poucos minutos.</h1>
             <p>Escolha o serviço, veja os horários disponíveis e garanta seu atendimento sem precisar ligar ou esperar resposta.</p>
-            <div class="acoes-banner">
-                <label for="abrir-modal" class="botao botao-primario botao-grande">
-                    Agendar Meu Horário
-                </label>
-                <a href="#vitrine-servicos" class="botao botao-contorno-claro botao-grande">
-                    Ver Serviços e Preços
-                </a>
+            <div class="banner-btns">
+                <label for="modal-login" class="btn btn-vermelho btn-lg">Agendar Meu Horário</label>
+                <a href="#servicos" class="btn btn-outline-branco btn-lg">Ver Serviços e Preços</a>
             </div>
         </div>
     </section>
 
-    <!-- Vitrine de Serviços -->
-    <main id="vitrine-servicos" class="container secao-servicos">
-        <div class="cabecalho-secao">
+    <main id="servicos" class="container area-servicos">
+        <div class="titulo-secao">
             <h2>Nossos Serviços</h2>
-            <p class="texto-suave">Valores transparentes e tempo estimado de atendimento</p>
+            <p class="subtexto">Valores transparentes e tempo estimado de atendimento</p>
         </div>
 
-        <div class="grade-servicos">
-            <article class="cartao-servico">
-                <div class="topo-servico">
+        <div class="grid-servicos">
+            <article class="card-servico">
+                <div class="servico-topo">
                     <h3>Corte Feminino</h3>
-                    <span class="preco-servico">R$ 80,00</span>
+                    <span class="preco">R$ 80,00</span>
                 </div>
-                <p class="texto-suave">Lavagem, corte personalizado e finalização com secador.</p>
-                <div class="rodape-servico">
+                <p class="subtexto">Lavagem, corte personalizado e finalização com secador.</p>
+                <div class="servico-rodape">
                     <span>Duração: <strong>60 min</strong></span>
-                    <label for="abrir-modal" class="link-agendar">Agendar &rarr;</label>
+                    <label for="modal-login" class="link-agendar">Agendar &rarr;</label>
                 </div>
             </article>
 
-            <article class="cartao-servico">
-                <div class="topo-servico">
+            <article class="card-servico">
+                <div class="servico-topo">
                     <h3>Corte Masculino</h3>
-                    <span class="preco-servico">R$ 45,00</span>
+                    <span class="preco">R$ 45,00</span>
                 </div>
-                <p class="texto-suave">Corte na tesoura ou máquina com acabamento na navalha.</p>
-                <div class="rodape-servico">
+                <p class="subtexto">Corte na tesoura ou máquina com acabamento na navalha.</p>
+                <div class="servico-rodape">
                     <span>Duração: <strong>30 min</strong></span>
-                    <label for="abrir-modal" class="link-agendar">Agendar &rarr;</label>
+                    <label for="modal-login" class="link-agendar">Agendar &rarr;</label>
                 </div>
             </article>
 
-            <article class="cartao-servico">
-                <div class="topo-servico">
+            <article class="card-servico">
+                <div class="servico-topo">
                     <h3>Escova e Hidratação</h3>
-                    <span class="preco-servico">R$ 70,00</span>
+                    <span class="preco">R$ 70,00</span>
                 </div>
-                <p class="texto-suave">Tratamento nutritivo profundo + escova modelada.</p>
-                <div class="rodape-servico">
+                <p class="subtexto">Tratamento nutritivo profundo + escova modelada.</p>
+                <div class="servico-rodape">
                     <span>Duração: <strong>50 min</strong></span>
-                    <label for="abrir-modal" class="link-agendar">Agendar &rarr;</label>
+                    <label for="modal-login" class="link-agendar">Agendar &rarr;</label>
                 </div>
             </article>
 
-            <article class="cartao-servico">
-                <div class="topo-servico">
+            <article class="card-servico">
+                <div class="servico-topo">
                     <h3>Coloração / Mechas</h3>
-                    <span class="preco-servico">R$ 180,00</span>
+                    <span class="preco">R$ 180,00</span>
                 </div>
-                <p class="texto-suave">Aplicação completa, tonalização e tratamento pós-química.</p>
-                <div class="rodape-servico">
+                <p class="subtexto">Aplicação completa, tonalização e tratamento pós-química.</p>
+                <div class="servico-rodape">
                     <span>Duração: <strong>120 min</strong></span>
-                    <label for="abrir-modal" class="link-agendar">Agendar &rarr;</label>
+                    <label for="modal-login" class="link-agendar">Agendar &rarr;</label>
                 </div>
             </article>
 
-            <article class="cartao-servico">
-                <div class="topo-servico">
+            <article class="card-servico">
+                <div class="servico-topo">
                     <h3>Barba e Acabamento</h3>
-                    <span class="preco-servico">R$ 35,00</span>
+                    <span class="preco">R$ 35,00</span>
                 </div>
-                <p class="texto-suave">Toalha quente, alinhamento e hidratação dos fios.</p>
-                <div class="rodape-servico">
+                <p class="subtexto">Toalha quente, alinhamento e hidratação dos fios.</p>
+                <div class="servico-rodape">
                     <span>Duração: <strong>30 min</strong></span>
-                    <label for="abrir-modal" class="link-agendar">Agendar &rarr;</label>
+                    <label for="modal-login" class="link-agendar">Agendar &rarr;</label>
                 </div>
             </article>
         </div>
     </main>
 
-    <footer class="rodape-site">
+    <footer class="rodape">
         <div class="container">
             <p><strong>Grupo 16 — Salão</strong> • Segunda a Sábado, das 09h às 19h</p>
         </div>
